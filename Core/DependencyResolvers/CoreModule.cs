@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using System.Diagnostics;
 
 namespace Core.DependencyResolvers
 {
@@ -16,6 +17,7 @@ namespace Core.DependencyResolvers
             serviceCollection.AddMemoryCache();
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
+            serviceCollection.AddSingleton<Stopwatch>();
         }
     }
 }
